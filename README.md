@@ -3,8 +3,8 @@ Start from part 5
 Refer for SAR reporting: https://www.cyberciti.biz/tips/identifying-linux-bottlenecks-sar-graphs-with-ksar.html
 
 
-For Advanced Shell scripting:
+Advanced Shell scripting: http://www.iitk.ac.in/LDP/LDP/abs/html/abs-guide.html#ACREF
 
-1. http://www.iitk.ac.in/LDP/LDP/abs/html/abs-guide.html#ACREF
+Makefile: http://www.gnu.org/software/make/manual/make.html
 
-2. https://www.quora.com/What-are-the-section-wise-best-books-to-prepare-for-CAT/answer/Ajay-Gupta-724 
+CAT Material: https://www.quora.com/What-are-the-section-wise-best-books-to-prepare-for-CAT/answer/Ajay-Gupta-724 
