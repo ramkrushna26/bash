@@ -1,12 +1,9 @@
-
-
 #!/bin/bash
 
-#################################
-#	Auther	: Ramkrushna Bolewar  #
-#	Name	  : Cows and Bulls Game #
-#	Version	: 1.0                 #
-################################
+#
+# Author	: Ramkrushna Bolewar
+# script Name	: Cows and Bulls Game
+#
 
 :<< COMMENTED
 ############################################################################# 
@@ -37,7 +34,7 @@ second_bit=$(( ($num2guess / 100) % 10  ));
 third_bit=$(( ($num2guess / 10) % 10 )); 
 fourth_bit=$(( $num2guess % 10 ));
 
-echo $num2guess $first_bit $second_bit $third_bit $fourth_bit
+#echo $num2guess $first_bit $second_bit $third_bit $fourth_bit
 
 ##### functions #####
 count_cowsNbulls() {
@@ -88,8 +85,8 @@ count_cowsNbulls() {
 		count_bulls=$(( $count_bulls + 1 ));
 	fi	
 	
-	echo " cows ::  $count_cows ";
-	echo " bulls :: $count_bulls ";
+	echo " cows  : $count_cows ";
+	echo " bulls : $count_bulls ";
 }
 
 while true
@@ -99,7 +96,7 @@ do
 		exit;
         elif [[ ($userGuess -ge 1000) && ($userGuess -le 9999) ]];then
 		if [ $userGuess -eq $num2guess ];then
-                	echo "Your guess is RIGHT and I declared you as BATMAN : GO ENJOY"
+                	echo -e "\nYour guess is RIGHT and I declared you as BATMAN : GO ENJOY"
                 	exit;
        		else
                 	count_cowsNbulls $userGuess $first_bit $second_bit $third_bit $fourth_bit;

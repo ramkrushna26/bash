@@ -15,7 +15,7 @@
 ####################################################################################
 
 
-########variables
+# variables
 
 read -p "Enter the number : " input
 export input
@@ -23,7 +23,7 @@ export count=0
 first=0
 second=1
 
-########functions
+# functions
 
 fibonacci() {
         echo -ne " $first "
@@ -39,15 +39,16 @@ fibonacci() {
                 echo -ne " $second "
                 count=$(( $count + 1 ))
         done
-
-        echo " BATMAN "
 }
 
 if [ $input -eq 1 ];then
         echo $first
 elif [ $input -gt 1 ];then
         fibonacci $input
+	echo ""
 else
         echo "Entered wrong number, I guess you dont want to play. BYE"
         break;
 fi
+
+echo -e "I am Batman!"
