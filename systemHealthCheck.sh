@@ -82,7 +82,7 @@ else
 fi
 
 echo -e $dash
-echo -e "$yellow Top 5 CPU Intensive Processes $nc"
+echo -e "$yellow Top 10 CPU Intensive Processes $nc"
 echo -e $dash
 
 echo -e "${green}$(ps -eo stat,pid,ppid,user,%mem,%cpu,args --sort=-%cpu | head -1) $nc"

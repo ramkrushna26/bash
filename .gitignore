@@ -1,0 +1,6 @@
+# Untrack folders
+log/
+
+# Untrack files
+*.zip
+*.exe
