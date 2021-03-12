@@ -2,3 +2,15 @@ This repository contains bash scripts!
 
 Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html
 Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+
+1.typeset  -- to make variable local inside function
+typeset -i x #interger
+
+2.declare
+declare -l lstr="ManoJ" #automatically convert into lowercase variable
+-r for readonly
+
+3.read a b -- first goes into a and rest in b
+
+4.
