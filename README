@@ -2,3 +2,23 @@ This repository contains bash scripts and necessary SQLs in SQL directory!
 
 Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html
 Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+
+1.typeset  -- to make variable local inside function
+typeset -i x #interger
+
+2.declare
+declare -l lstr="ManoJ" #automatically convert into lowercase variable
+-r for readonly
+
+3.read a b -- first goes into a and rest in b
+
+4.seq 1 5  -- prints 1 2 3 4 5
+
+5.{1..5}  -- prints 1 2 3 4 5
+
+6.var=$(function_name)  -- to capture function output
+
+7.export -f function_name  -- to export function
+
+8.|&  -- it will send both stdout and stderr to next command
