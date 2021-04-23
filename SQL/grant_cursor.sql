@@ -1,4 +1,4 @@
---This script grants mention permission to user all tables
+--This script grants mention permission to user on all tables
 
 DECLARE
 CURSOR C1 IS SELECT OWNER, TABLE_NAME FROM ALL_TABLES WHERE OWNER LIKE "<TABLE_OWNER>";
