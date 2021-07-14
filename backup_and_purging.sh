@@ -135,12 +135,94 @@ function run_backup_and_compress {
           mv ${BKP_FILE} ${TEMP_PATH}
         done < ${TMP_BACKUP_FILE}
         TAR_NAME="BACKUP_$( echo ${BACKUP_FILES} | tr -d "*" )_$( date +%Y%m%d_%H%M%S_%4N ).TAR"
-        
+        cd ${TEMP_PATH}
+        gzip *
+        cd ${BACKUP_PATH}
+        tar cfP ${TAR_NAME} ${TEMP_PATH}
+        if [ $? -eq 0 ]
+        then
+          rm -rf ${TEMP_PATH}
+        fi
+        cd - > /dev/null 2>&1
       fi
+    elif [[ ${COMPRESS_ACTION} == "GZIP" ]]
+    then
+      echo "[+] Performing GZIP on ${FILE_PATH}/${BACKUP_FILES}"
+      while read BKP_FILE
+      do
+        gzip ${BKP_FILE}
+        mv ${BKP_FILE}.gz ${BACKUP_PATH}
+      done < ${TMP_BACKUP_FILE}
+    elif [[ ${COMPRESS_ACTION} == "TAR" ]]
+    then
+      echo "[+] Performing TAR on ${FILE_PATH}/${BACKUP_FILES}"
+      TEMP_PATH="${BACKUP_PATH}/BACKUP_${DATE_TIME}"
+      mkdir ${TEMP_PATH}
+      if [ $? -eq 0 ]
+      then
+        while read BKP_FILE
+        do
+          mv ${BKP_FILE} ${BACKUP_PATH}
+        done < ${TMP_BACKUP_FILE}
+        TAR_NAME="BACKUP_$( echo ${BACKUP_FILES} | tr -d "*" )_$( date +%Y%m%d_%H%M%S_%4N ).TAR"
+        cd ${BACKUP_PATH}
+        tar cfP ${TAR_NAME} ${TEMP_PATH}
+        if [ $? -eq 0 ]
+        then
+          rm -rf ${TEMP_PATH}
+        fi
+        cd - > /dev/null 2>&1
+      fi
+    else
+      while read line
+      do
+        mv ${line} ${BACKUP_PATH}
+      done < ${TMP_BACKUP_FILE}
     fi
   fi
   
+  rm -f ${TMP_BACKUP_FILE}
 }
 
+function backup_and_compress {
+  while read line
+  do
+    if [[ ${line} == \#* ]] || [[ ${line} == '' ]]
+    then
+      continue
+    fi
+    FILE_PATH=$( echo ${line} | awk -F\| '{ print $1 }' )
+    BACKUP_FILES=$( echo ${line} | awk -F\| '{ print $2 }' )
+    RETENTION_PERIOD=$( echo ${line} | awk -F\| '{ print $3 }' )
+    BACKUP_PATH=$( echo ${line} | awk -F\| '{ print $4 }' )
+    COMPRESS_ACTION=$( echo ${line} | awk -F\| '{ print $5 }' )
+    
+    run_backup_and_compress ${FILE_PATH} ${BACKUP_FILES} ${RETENTION_PERIOD} ${BACKUP_PATH} ${COMPRESS_ACTION} 
+  done < ${BACKUP_CONF}
+  echo "[+] Backup Files : $(wc -l ${BACKUP_FILE} | awk -F" " '{ print $1 }' ) "
+}
+
+check_running_process
+
+if [ -f {BACKUP_CONF} ]
+then
+  backup_count=$( grep -v ^# ${BACKUP_CONF} | wc -l )
+  if [ ${backup_count} -gt 0 ]
+  then
+    backup_and_compress
+  else
+    echo "[-] No Entries in ${BACKUP_CONF}"
+  fi
+else
+  echo "[-] ${BACKUP_CONF} Does Not Exist "
+fi
+
+generate_audit_file
+
+remove_files
+
+remove_process_file
+
+echo "[+] Completed : $( date ) "
 
 } >> ${LOG_FILE} 2>&1
