@@ -97,7 +97,50 @@ function remove_files {
   fi
 }
 
+function run_backup_and_compress {
+  
+  FILE_PATH=$1
+  BACKUP_FILES=$2
+  RETENTION_PERIOD=$3
+  BACKUP_PATH=$4
+  COMPRESS_ACTION=$5
+  TAR_FILE_NAME=""
 
+  if [ -f ${TMP_BACKUP_FILE} ]
+  then
+    rm -f ${TMP_BACKUP_FILE}
+  fi
+
+  find ${FILE_PATH} -type f -name "${BACKUP_FILES}" -mtime +${RETENTION_PERIOD} > ${TMP_BACKUP_FILE}
+  echo "[+] No. Files for Pattern (${FILE_PATH}/${BACKUP_FILES}) : $( wc -l ${TMP_BACKUP_FILE} | awk -F" " '{ print $1 }' ) "
+  cat ${TMP_BACKUP_FILE} >> ${BACKUP_FILE}
+  if [ -z ${COMPRESS_ACTION} ]
+  then
+    while read line
+    do
+      echo "[+] No Compress Action for ${FILE_PATHJ}/${BACKUP_FILES}"
+      mv ${line} ${BACKUP_PATH}
+    done < ${TMP_BACKUP_FILE} 
+  else
+    echo "[+] Compress Action : ${COMPRESS_ACTION} "
+    if [[ ${COMPRESS_ACTION} == "GZIP+TAR" || ${COMPRESS_ACTION} == "TAR+GZIP" ]]
+    then
+      echo "[+] Performing GZIP then TAR on ${FILE_PATH}/${BACKUP_FILES}"
+      TEMP_PATH=${BACKUP_PATH}/BACKUP_${DATE_TIME}
+      mkdir ${TEMP_PATH}
+      if  [ $? -eq 0 ]
+      then
+        while read BKP_FILE
+        do
+          mv ${BKP_FILE} ${TEMP_PATH}
+        done < ${TMP_BACKUP_FILE}
+        TAR_NAME="BACKUP_$( echo ${BACKUP_FILES} | tr -d "*" )_$( date +%Y%m%d_%H%M%S_%4N ).TAR"
+        
+      fi
+    fi
+  fi
+  
+}
 
 
 } >> ${LOG_FILE} 2>&1
