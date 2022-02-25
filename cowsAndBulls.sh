@@ -1,9 +1,7 @@
 #!/bin/bash
 
-#
 # Author	: Ramkrushna Bolewar
 # script Name	: Cows and Bulls Game
-#
 
 :<< COMMENTED
 ############################################################################# 
