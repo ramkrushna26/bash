@@ -1,6 +1,0 @@
-Indexes:
-  1. B-tree - most commonly used and by default is used while creating index - used on columns which has more cardinality
-  2. Bitmap - used on columns which has low cardinality (columns having less distinctive values)
-  3. Hash - used on more cardinality columns table
-  
-
