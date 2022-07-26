@@ -1,4 +1,4 @@
-### This repository contains bash scripts and SQLs ###
+### This repository contains bash scripts ###
 ---
 
 Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
