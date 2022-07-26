@@ -1,4 +1,5 @@
 ### This repository contains bash scripts and SQLs ###
+---
 
 Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
 Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting  
