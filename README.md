@@ -4,14 +4,12 @@ Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html
 Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
 
-typeset  -- to make variable local inside function
+typeset  -- to make variable local inside function  
 typeset -i x #interger
 
-
-declare
-declare -l lstr="ManoJ" #automatically convert into lowercase variable
--r for readonly
-
+declare  
+declare -l lstr="ManoJ" #automatically convert into lowercase variable  
+-r for readonly  
 
 read a b -- first goes into a and rest in b
 
