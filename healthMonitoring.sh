@@ -28,4 +28,8 @@ then
 	done < $serverList
 else
 	echo -e "Config File does not exist: $serverList "
-fi
+fi  
+
+
+#Add months to date
+date -d "20220201 1 months"
