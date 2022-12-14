@@ -1,4 +1,12 @@
 
+# IN_PARM	: 
+#	1 put/get
+#	2 server ip 
+#	3 sftp port 
+#	4 sftp user
+#	5 sftp pwd 
+#	6 file name/pattern
+#	7 file path
 
 cur_date=$( date +%d%m%Y_%H%M%S )
 
