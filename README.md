@@ -1,10 +1,11 @@
-### This repository contains bash scripts ###
----
+## This repository contains bash scripts ##
 
-Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
-Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting  
 
-typeset  -- to make variable local inside function  
+* Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
+* Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting  
+
+* to make variable local inside function  
+typeset  -- 
 typeset -i x #interger
 
 declare  
