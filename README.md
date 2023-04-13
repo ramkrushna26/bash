@@ -8,11 +8,13 @@
 typeset  -- 
 typeset -i x #interger
 
+
 declare  
 declare -l lstr="ManoJ" #automatically convert into lowercase variable  
 -r for readonly  
 
-read a b -- first goes into a and rest in b  
+** first goes into a and rest in b  **
+read a b -- 
 
 seq 1 5  -- prints 1 2 3 4 5  
 
