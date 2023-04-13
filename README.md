@@ -5,9 +5,10 @@
 * Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting  
 
 * to make variable local inside function  
-typeset  -- 
-typeset -i x #interger
+> typeset  
 
+* #interger
+> typeset -i x 
 
 > declare  
 > declare -l lstr="ManoJ" #automatically convert into lowercase variable  
@@ -18,6 +19,7 @@ typeset -i x #interger
 
 > seq 1 5  -- prints 1 2 3 4 5  
 > {1..5}  -- prints 1 2 3 4 5  
+
 * to capture function output  
 > var=$(function_name)
 
@@ -27,21 +29,25 @@ typeset -i x #interger
 * it will send both stdout and stderr to next command  
 > |& 
 
-x=abc  
-abc=def  
-echo ${!x} - will print def  
+* will print def
+> x=abc  
+> abc=def  
+> echo ${!x} -   
 
-a=${x:-dog} -- a will set to value of x. If x is not set then a to dog but not x  
-a=${x:=dog} -- will set a as well as x to dog  
+* a will set to value of x. If x is not set then a to dog but not x  
+> a=${x:-dog}
 
-echo ${string:4} -- will print all char from 5th position  
-echo ${string:4:3} -- will print only 3 char from 4th posistion   
+> a=${x:=dog} #will set a as well as x to dog  
 
-${p#var} -- removes prefix var from p  
-${p%var} -- removes suffix var from p  
+> echo ${string:4} #will print all char from 5th position  
+> echo ${string:4:3} #will print only 3 char from 4th posistion   
 
-coproc ./test.sh -- will run test.sh in background  
-$ echo bannaa >&"${COPROC[1]}"  
-$ cat <&"${COPROC[0]}"  
+> ${p#var} #removes prefix var from p  
+> ${p%var} #removes suffix var from p  
 
-use GETOPT to unravel the arguments pass to script  
+> coproc ./test.sh -- will run test.sh in background  
+> $ echo bannaa >&"${COPROC[1]}"  
+> $ cat <&"${COPROC[0]}"  
+  
+  
+* use GETOPT to unravel the arguments pass to script  
