@@ -9,22 +9,23 @@ typeset  --
 typeset -i x #interger
 
 
-declare  
-declare -l lstr="ManoJ" #automatically convert into lowercase variable  
--r for readonly  
+> declare  
+> declare -l lstr="ManoJ" #automatically convert into lowercase variable  
+> -r for readonly  
 
-* first goes into a and rest in b  *  
-read a b -- 
+* first goes into a and rest in b 
+> read a b 
 
-seq 1 5  -- prints 1 2 3 4 5  
+> seq 1 5  -- prints 1 2 3 4 5  
+> {1..5}  -- prints 1 2 3 4 5  
+* to capture function output  
+> var=$(function_name)
 
-{1..5}  -- prints 1 2 3 4 5  
+* to export function  
+> export -f function_name  
 
-var=$(function_name)  -- to capture function output  
-
-export -f function_name  -- to export function  
-
-|&  -- it will send both stdout and stderr to next command  
+* it will send both stdout and stderr to next command  
+> |& 
 
 x=abc  
 abc=def  
