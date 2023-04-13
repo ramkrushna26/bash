@@ -19,25 +19,20 @@
 
 > seq 1 5  -- prints 1 2 3 4 5  
 > {1..5}  -- prints 1 2 3 4 5  
+  
+> var=$(function_name) #to capture function output
 
-* to capture function output  
-> var=$(function_name)
+> export -f function_name  #to export function  
 
-* to export function  
-> export -f function_name  
-
-* it will send both stdout and stderr to next command  
-> |& 
+> |& #it will send both stdout and stderr to next command  
 
 * will print def
 > x=abc  
 > abc=def  
 > echo ${!x} -   
 
-* a will set to value of x. If x is not set then a to dog but not x  
-> a=${x:-dog}
-
-> a=${x:=dog} #will set a as well as x to dog  
+> a=${x:-dog} #a will set to value of x. If x is not set then a to dog but not x  
+> a=${x:=dog} #will set a as well as x to dog 
 
 > echo ${string:4} #will print all char from 5th position  
 > echo ${string:4:3} #will print only 3 char from 4th posistion   
