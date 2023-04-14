@@ -3,11 +3,15 @@
 
 * Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
 * Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting  
+* Logging: https://www.cubicrace.com/2016/03/efficient-logging-mechnism-in-shell.html
 
-* to make variable local inside function  
+```
+# To make variable local inside function
 > typeset  
+```
 
 * #interger
+
 > typeset -i x 
 
 > declare  
