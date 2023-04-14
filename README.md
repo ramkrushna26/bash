@@ -9,16 +9,14 @@
 # To make variable local inside function
 > typeset  
 > typeset -i x ##integer
-```
 
-```
 > declare  
 > declare -l lstr="ManoJ" #automatically convert into lowercase variable  
 > -r for readonly  
   
 #first goes into a and rest in b 
 > read a b 
-```
+
 > seq 1 5  -- prints 1 2 3 4 5  
 > {1..5}  -- prints 1 2 3 4 5  
   
@@ -28,10 +26,9 @@
 
 > |& #it will send both stdout and stderr to next command  
 
-* will print def
 > x=abc  
 > abc=def  
-> echo ${!x} -   
+> echo ${!x} #will print def
 
 > a=${x:-dog} #a will set to value of x. If x is not set then a to dog but not x  
 > a=${x:=dog} #will set a as well as x to dog 
@@ -45,6 +42,7 @@
 > coproc ./test.sh -- will run test.sh in background  
 > $ echo bannaa >&"${COPROC[1]}"  
 > $ cat <&"${COPROC[0]}"  
-  
-  
-* use GETOPT to unravel the arguments pass to script  
+```  
+
+
+* **use GETOPT to unravel the arguments pass to script**
