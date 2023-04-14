@@ -1,4 +1,3 @@
-# This repository contains bash scripts
 
 ## Tasks
 - [x] Update Readme
