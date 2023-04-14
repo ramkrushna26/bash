@@ -1,9 +1,8 @@
 # This repository contains bash scripts
 
 ## Tasks
-- [x] #739
-- [ ] https://github.com/octo-org/octo-repo/issues/740
-- [ ] Add delight to the experience when all tasks are complete :tada:
+- [x] Update Readme
+- [ ] Create Videos on Linux Topics
 
 ## References
 * Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
