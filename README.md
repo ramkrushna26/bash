@@ -1,10 +1,17 @@
-## This repository contains bash scripts ##
+# This repository contains bash scripts
 
+## Tasks
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
 
+## References
 * Refer: https://www.macs.hw.ac.uk/~hwloidl/Courses/LinuxIntro/x945.html  
 * Refer for color and text improve : https://misc.flogisoft.com/bash/tip_colors_and_formatting  
 * Logging: https://www.cubicrace.com/2016/03/efficient-logging-mechnism-in-shell.html
 
+
+## Linux Useful Commands
 ```
 # To make variable local inside function
 > typeset  
@@ -44,5 +51,5 @@
 > $ cat <&"${COPROC[0]}"  
 ```  
 
-
-* **use GETOPT to unravel the arguments pass to script**
+## Linux Notes
+* use GETOPT to unravel the arguments pass to script
