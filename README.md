@@ -8,19 +8,17 @@
 ```
 # To make variable local inside function
 > typeset  
+> typeset -i x ##integer
 ```
 
-* #interger
-
-> typeset -i x 
-
+```
 > declare  
 > declare -l lstr="ManoJ" #automatically convert into lowercase variable  
 > -r for readonly  
-
-* first goes into a and rest in b 
+  
+#first goes into a and rest in b 
 > read a b 
-
+```
 > seq 1 5  -- prints 1 2 3 4 5  
 > {1..5}  -- prints 1 2 3 4 5  
   
